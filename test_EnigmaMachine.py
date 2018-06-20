@@ -36,7 +36,7 @@ class test_EnigmaMachine(unittest.TestCase):
                 decode = e2.encode(encode)
                 if decode != ran_str.upper():
                     print ran_str
-                    print [Rotor1,Rotor2,Rotor3],
+                    print [Rotor1,Rotor2,Rotor3]
                     print key
                     print patch_board
                     print reflector
