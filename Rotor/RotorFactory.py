@@ -1,5 +1,5 @@
 import random
-class Rotor:
+class RotorFactory:
     def __init__(self):
         self.input_list="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         tmp=[]
@@ -10,12 +10,9 @@ class Rotor:
         for i in tmp:
             self.output_list+=i
 
-    def encode(self,input):
-        local=self.input_list.find(input)
-        return self.output_list[local]
+    def get_rotor(self):
+        print self.output_list
 
 if __name__=="__main__":
-    r=Rotor()
-    print r.input_list
-    print r.output_list
-    print r.encode("A")
+    for i in xrange(3):
+        RotorFactory().get_rotor()
