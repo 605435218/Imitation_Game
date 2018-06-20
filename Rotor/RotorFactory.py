@@ -1,4 +1,6 @@
+# coding:utf-8
 import random
+#转子工厂
 class RotorFactory:
     def __init__(self):
         self.input_list="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -9,10 +11,9 @@ class RotorFactory:
         self.output_list=""
         for i in tmp:
             self.output_list+=i
-
+    #获得一个转子的内部线路
     def get_rotor(self):
-        print self.output_list
+        return self.output_list
 
 if __name__=="__main__":
-    for i in xrange(3):
-        RotorFactory().get_rotor()
+    RotorFactory().get_rotor()

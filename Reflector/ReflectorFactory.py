@@ -1,5 +1,6 @@
 # coding:utf-8
 import random
+#反射器工厂
 class ReflectorFactory:
     def __init__(self):
         self.Alphabet=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -9,8 +10,9 @@ class ReflectorFactory:
         self.reflector=dict(zip(list(s2),list(s3)))
         self.reflector.update(dict(zip(list(s3),list(s2))))
 
+    #获得一个反射器
     def get_reflector(self):
-        print self.reflector
+        return self.reflector
 
 if __name__=="__main__":
-    ReflectorFactory().get_reflector()
+    print ReflectorFactory().get_reflector()
