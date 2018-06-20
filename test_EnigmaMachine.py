@@ -20,8 +20,8 @@ class test_EnigmaMachine(unittest.TestCase):
             patch_board = PatchBoardFactory().get_patchboard()
             #随机生成3个转子
             Rotor1=RotorFactory().get_rotor()
-            Rotor2 = RotorFactory().get_rotor()
-            Rotor3 = RotorFactory().get_rotor()
+            Rotor2=RotorFactory().get_rotor()
+            Rotor3=RotorFactory().get_rotor()
             #随机生成一个反射器
             reflector=ReflectorFactory().get_reflector()
             #生成一台恩格玛机用于编码
@@ -36,7 +36,7 @@ class test_EnigmaMachine(unittest.TestCase):
                 decode = e2.encode(encode)
                 if decode != ran_str.upper():
                     print ran_str
-                    print [Rotor(Rotor1),Rotor(Rotor2),Rotor(Rotor3)],
+                    print [Rotor1,Rotor2,Rotor3],
                     print key
                     print patch_board
                     print reflector
