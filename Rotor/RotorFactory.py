@@ -16,4 +16,4 @@ class RotorFactory:
         return self.output_list
 
 if __name__=="__main__":
-    RotorFactory().get_rotor()
+    print RotorFactory().get_rotor()

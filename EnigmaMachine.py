@@ -1,4 +1,5 @@
 # coding:utf-8
+
 from Rotor.Rotor import Rotor
 import copy
 
@@ -71,6 +72,8 @@ if __name__=="__main__":
     e1 = EnigmaMachine([Rotor(Rotor1), Rotor(Rotor2), Rotor(Rotor3)], key, patch_board, reflector)
     # 生成一台恩格玛机用于解码
     e2 = EnigmaMachine([Rotor(Rotor1), Rotor(Rotor2), Rotor(Rotor3)], key, patch_board, reflector)
-    encode = e1.encode("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "*5)
+    encode = e1.encode("ABCDEFGHIJKLMNOPQRSTUVWXYZ   "*2)
     decode = e2.encode(encode)
-    print decode
+    print u"明文："+"ABCDEFGHIJKLMNOPQRSTUVWXYZ   "*2
+    print u"密文:"+encode
+    print u"密文解码:"+decode

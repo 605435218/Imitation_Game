@@ -13,7 +13,7 @@ class test_EnigmaMachine(unittest.TestCase):
         pass
     def test_encode(self):
         characters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789,.!?'
-        for n in xrange(1000):
+        for n in xrange(1):
             #随机生成一个密钥
             key=''.join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ',3))
             #随机生成一个插线板排序
@@ -41,6 +41,23 @@ class test_EnigmaMachine(unittest.TestCase):
                     print patch_board
                     print reflector
                 self.assertEqual(ran_str.upper(),decode)
+
+    def test_norepeat(self):
+        # 随机生成一个密钥
+        key = ''.join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 3))
+        # 随机生成一个插线板排序
+        patch_board = PatchBoardFactory().get_patchboard()
+        # 随机生成3个转子
+        Rotor1 = RotorFactory().get_rotor()
+        Rotor2 = RotorFactory().get_rotor()
+        Rotor3 = RotorFactory().get_rotor()
+        # 随机生成一个反射器
+        reflector = ReflectorFactory().get_reflector()
+        # 生成一台恩格玛机用于编码
+        e = EnigmaMachine([Rotor(Rotor1), Rotor(Rotor2), Rotor(Rotor3)], key, patch_board, reflector)
+        test=''.join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 1))
+        encode = e.encode(test*1000)
+        self.assertTrue(test not in encode)
 
 if __name__=="__main__":
     unittest.main()
